@@ -15,7 +15,6 @@ body {
 
 .containerNotInStock {
     display: inline-block;
-    content: "Out Of Stock";
     margin-left: 25px;
     padding: 25px;
     cursor: pointer;

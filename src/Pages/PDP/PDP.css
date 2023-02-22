@@ -1,0 +1,207 @@
+.mainDiv {
+    position: absolute;
+    margin: 60px;
+}
+
+.smallImgs img {
+    display: block;
+    padding: 30px;
+    cursor: pointer;
+}
+
+.smallImgs {
+    display: inline-block;
+    position: relative;
+    top: 200px;
+    right: 30px;
+}
+
+.bigImg {
+    position: absolute;
+    left: 70%;
+    top: 70%;
+    padding: 15px;
+}
+
+.prodHeader {
+/* Apollo */
+
+
+position: absolute;
+width: 292px;
+height: 27px;
+left: 929px;
+top: 160px;
+
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 30px;
+line-height: 27px;
+/* identical to box height, or 90% */
+
+display: flex;
+align-items: center;
+
+color: #1D1F22;
+}
+
+.sizeHeader {
+/* SIZE: */
+
+
+position: absolute;
+width: 38px;
+height: 18px;
+left: 929px;
+top: 273px;
+
+font-family: 'Roboto Condensed';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 18px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1D1F22;
+}
+
+.colorHeader {
+/* COLOR: */
+
+
+position: absolute;
+width: 55px;
+height: 18px;
+left: 929px;
+top: 368px;
+
+font-family: 'Roboto Condensed';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 18px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1D1F22;
+}
+
+.priceHeader {
+/* PRICE: */
+
+
+position: absolute;
+width: 50px;
+height: 18px;
+left: 929px;
+top: 466px;
+
+font-family: 'Roboto Condensed';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 18px;
+/* identical to box height, or 100% */
+
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #1D1F22;
+}
+
+.mainPriceHeader {
+/* $50.00 */
+
+
+position: absolute;
+width: 86px;
+height: 46px;
+left: 929px;
+top: 494px;
+
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 18px;
+/* or 75% */
+
+display: flex;
+align-items: center;
+
+color: #1D1F22;
+}
+
+.addBtn {
+/* _Button / Elements / Common */
+
+
+/* Auto layout */
+
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 16px 32px;
+
+position: absolute;
+width: 292px;
+height: 52px;
+left: 929px;
+top: 560px;
+
+background: #5ECE7B;
+
+/* --button-font */
+
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 120%;
+/* identical to box height, or 19px */
+
+align-items: center;
+text-align: center;
+text-transform: uppercase;
+
+/* --c-white */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.prodDiscrip {
+/* Description */
+
+
+position: relative;
+top: 270px;
+left: 1000px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 159.96%;
+/* or 26px */
+
+
+/* --c-text */
+
+color: #1D1F22;
+}
