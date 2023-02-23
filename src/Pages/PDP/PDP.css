@@ -81,6 +81,22 @@ color: #1D1F22;
     margin: 15px;
 }
 
+.dispValDiv {
+    border: black solid 2px;
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
+}
+.dispValDiv:hover {
+    border: black solid 2px;
+    background-color: gray;
+    color: white;
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
+    cursor: pointer;
+}
+
 .priceHeader {
 /* PRICE: */
 

@@ -50,10 +50,10 @@ export default function PDP() {
     };
 
     function DisplayDetails() {
-      console.log(data.product.attributes.map((attr) => (attr.items.map((item) => (item.displayValue)))));
+      console.log(data.product.attributes.map((attr) => (attr.items.map((item) => (item.value)))));
       return data.product.attributes.map((attr) => (
         <>
-        {attr.name}: <div style={attr.name === "Color"? {backgroundColor: attr.items.map((item) => (item.value)), width: "32px", height: "32px"} : {}} key={attr.name}>{attr.name === "Color"? "" : attr.items.map((item) => (item.displayValue))}</div>
+        {attr.name}: <div style={attr.name === "Color"? {backgroundColor: attr.items.map((item) => (item.value)), width: "32px", height: "32px"} : {}} key={attr.name}>{attr.name === "Color"? "" : attr.items.map((item) => (<div key={item} className={'dispValDiv'}>{item.displayValue}</div>))}</div>
         </>
       ));
     };
