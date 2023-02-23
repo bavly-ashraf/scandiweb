@@ -7,19 +7,30 @@ export default function PDP() {
   const location = useLocation();
 
   const [imgSrc, setImgSrc] = useState(location.state.img);
+  console.log(location.state.id);
 
     const GET_PRODUCT_Gallery = gql`
     query {
   product(id: "${location.state.id}") {
-    id,
-    name,
-    gallery,
-    description,
+    id
+    name
+    gallery
+    description
     prices {
-      amount,
+      amount
       currency{
         label
         symbol
+      }
+    }
+    attributes {
+      id
+      name
+      type
+      items {
+        displayValue
+        value
+        id
       }
     }
   }
@@ -37,6 +48,14 @@ export default function PDP() {
       ));
     };
 
+    function DisplayDetails() {
+      return data.product.attributes.map((attr) => (
+        <div key={attr.name} className='attrHeader'>
+        <h2 key={attr.id}>{attr.name}</h2>
+        </div>
+      ));
+    };
+
   return (
   <div className='mainDiv'>
   <div className='smallImgs'>
@@ -44,14 +63,11 @@ export default function PDP() {
   </div>
   <img src={imgSrc} alt={data.product.name} width={"610px"} className='bigImg' />
   <h1 className='prodHeader'>{location.state.prod}</h1>
-  <h2 className='sizeHeader'>Size:</h2>
-  {/*Size Component*/}
-  <h2 className='colorHeader'>Color:</h2>
-  {/*ColorSwatch Component*/}
+  <DisplayDetails />
   <h2 className='priceHeader'>Price:</h2>
   <h1 className='mainPriceHeader'>{data.product.prices[0].currency.symbol}{data.product.prices[0].amount}</h1>
   <button className='addBtn'>ADD TO CART</button>
-  <p className='prodDiscrip'>{data.product.description}</p>
+  <div className='prodDiscrip'>{data.product.description}</div>
   </div>
   );
 }
