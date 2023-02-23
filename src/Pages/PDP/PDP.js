@@ -49,9 +49,10 @@ export default function PDP() {
     };
 
     function DisplayDetails() {
+
       return data.product.attributes.map((attr) => (
         <>
-        {attr.name}: <div key={attr.name}>{attr.items.displayValue}</div>
+        {attr.name}: <div style={attr.name === "Color"? {backgroundColor: attr.items[0].value, width: "32px", height: "32px"} : {}} key={attr.name}>{attr.name === "Color"? "" : attr.items[0].displayValue}</div>
         </>
       ));
     };
