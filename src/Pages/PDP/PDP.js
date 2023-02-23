@@ -50,9 +50,9 @@ export default function PDP() {
 
     function DisplayDetails() {
       return data.product.attributes.map((attr) => (
-        <div key={attr.name} className='attrHeader'>
-        <h2 key={attr.id}>{attr.name}</h2>
-        </div>
+        <>
+        {attr.name}: <div key={attr.name}>{attr.items.displayValue}</div>
+        </>
       ));
     };
 
@@ -63,7 +63,9 @@ export default function PDP() {
   </div>
   <img src={imgSrc} alt={data.product.name} width={"610px"} className='bigImg' />
   <h1 className='prodHeader'>{location.state.prod}</h1>
+  <div className='attrHeader'>
   <DisplayDetails />
+  </div>
   <h2 className='priceHeader'>Price:</h2>
   <h1 className='mainPriceHeader'>{data.product.prices[0].currency.symbol}{data.product.prices[0].amount}</h1>
   <button className='addBtn'>ADD TO CART</button>

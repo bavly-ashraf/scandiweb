@@ -77,16 +77,8 @@ line-height: 18px;
 color: #1D1F22;
 }
 
-.attrHeader h2{
-font-family: 'Roboto Condensed';
-font-style: normal;
-font-weight: 700;
-font-size: 18px;
-line-height: 18px;
-/* identical to box height, or 100% */
-
-color: #1D1F22;
-display: block;
+.attrHeader *{
+    padding: 35px;
 }
 
 .priceHeader {
