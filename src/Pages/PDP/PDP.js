@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./PDP.css";
 import { useQuery, gql } from '@apollo/client';
 import { useLocation } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 export default function PDP() {
   const location = useLocation();
@@ -49,13 +50,20 @@ export default function PDP() {
     };
 
     function DisplayDetails() {
-
+      console.log(data.product.attributes.map((attr) => (attr.items.map((item) => (item.displayValue)))));
       return data.product.attributes.map((attr) => (
         <>
-        {attr.name}: <div style={attr.name === "Color"? {backgroundColor: attr.items[0].value, width: "32px", height: "32px"} : {}} key={attr.name}>{attr.name === "Color"? "" : attr.items[0].displayValue}</div>
+        {attr.name}: <div style={attr.name === "Color"? {backgroundColor: attr.items.map((item) => (item.value)), width: "32px", height: "32px"} : {}} key={attr.name}>{attr.name === "Color"? "" : attr.items.map((item) => (item.displayValue))}</div>
         </>
       ));
     };
+
+    function DisplayDescription() {
+      const htmlString = data.product.description;
+      const reactElement = parse(htmlString);
+
+      return reactElement;
+    }
 
   return (
   <div className='mainDiv'>
@@ -70,7 +78,9 @@ export default function PDP() {
   <h2 className='priceHeader'>Price:</h2>
   <h1 className='mainPriceHeader'>{data.product.prices[0].currency.symbol}{data.product.prices[0].amount}</h1>
   <button className='addBtn'>ADD TO CART</button>
-  <div className='prodDiscrip'>{data.product.description}</div>
+  <div className='prodDiscrip'>
+  <DisplayDescription />
+  </div>
   </div>
   );
 }
