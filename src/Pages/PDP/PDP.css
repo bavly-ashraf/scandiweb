@@ -9,6 +9,13 @@
     cursor: pointer;
 }
 
+.smallImgs img:hover {
+    display: block;
+    padding: 30px;
+    cursor: pointer;
+    opacity: 50%;
+}
+
 .smallImgs {
     display: inline-block;
     position: relative;

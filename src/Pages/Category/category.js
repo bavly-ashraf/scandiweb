@@ -33,6 +33,8 @@ const Category = ({navData}) => {
   query {
     category (input: {title: "${catName}"}) {
       products {
+        id,
+        description,
         inStock,
         gallery,
         name,
@@ -54,9 +56,9 @@ if (loading) return <p>Loading...</p>;
 if (error) return <p>Error : {error.message}</p>;
 
     return data.category.products.map((prod) => (
-    <div key={prod.name} className={prod.inStock? "container" : "containerNotInStock"}>
-      <Link to={"/PDP"} state={{prod: prod.name}} style={{textDecoration: "none", color: 'inherit'}}>
-      <p key={prod.name} className={prod.inStock? "inStock" : "notInStock"}>Out Of Stock</p>
+    <div key={prod.id} className={prod.inStock? "container" : "containerNotInStock"}>
+      <Link to={"/PDP"} state={{prod: prod.name, id: prod.id, img: prod.gallery[0]}} style={{textDecoration: "none", color: 'inherit'}}>
+      <p key={prod.description} className={prod.inStock? "inStock" : "notInStock"}>Out Of Stock</p>
     <Container key={prod.name} prodName={prod.name} prodPrice={prod.prices[0].currency.symbol + prod.prices[0].amount} imgSrc={prod.gallery[0]} />
     </Link>
     </div>
