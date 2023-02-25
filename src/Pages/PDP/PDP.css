@@ -89,7 +89,7 @@ color: #1D1F22;
 }
 .dispValDiv:hover {
     border: black solid 2px;
-    background-color: gray;
+    background-color: black;
     color: white;
     display: inline-block;
     padding: 2px;
