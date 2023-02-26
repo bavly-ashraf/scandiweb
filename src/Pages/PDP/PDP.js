@@ -9,7 +9,8 @@ export default function PDP() {
 
   //useState for bigImg
   const [imgSrc, setImgSrc] = useState(location.state.img);
-
+  const [colorisActive, setColorIsActive] = useState(null);
+  const [isActive, setIsActive] = useState(null);
   //useState for Cart
   
 
@@ -56,7 +57,7 @@ export default function PDP() {
       return data.product.attributes.map((attr) => (
         <>
         <div key={attr.id}>{attr.name}:</div>
-         {attr.name === "Color"? attr.items.map((item) => (<div className='colorDiv' style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div key={item.id} className={'dispValDiv'}>{item.displayValue}</div>))}
+         {attr.name === "Color"? attr.items.map((item) => (<div onClick={() => setColorIsActive(item.displayValue)} className={colorisActive === item.displayValue? 'activeColorDiv' : 'colorDiv'} style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div onClick={() => setIsActive(item.displayValue)} key={item.id} className={isActive === item.displayValue? 'activeDispValDiv' : 'dispValDiv'}>{item.displayValue}</div>))}
          </>
          ));
     };

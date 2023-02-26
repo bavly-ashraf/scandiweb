@@ -22,7 +22,7 @@ const Category = ({navData}) => {
     //console.log( data );
     return  navData.map(({ name }) => (
 
-      <NavLink to='/' key={name} onClick={(e) => setCatName(e.currentTarget.text)}>
+      <NavLink style={catName === name? {color: '#5ECE7B'}: null} key={name} onClick={(e) => setCatName(e.currentTarget.text)}>
         {name}
       </NavLink>
     ));

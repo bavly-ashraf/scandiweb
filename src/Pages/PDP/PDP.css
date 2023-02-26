@@ -81,6 +81,13 @@ color: #1D1F22;
     margin: 15px;
 }
 
+.activeColorDiv {
+    position: relative;
+    left: 20px;
+    display: inline-block;
+    border: solid orangered 2px ;
+}
+
 .colorDiv {
     position: relative;
     left: 20px;
@@ -91,11 +98,20 @@ color: #1D1F22;
 .colorDiv:hover {
     position: relative;
     left: 20px;
-    width: 30px;
-    height: 30px;
     display: inline-block;
     cursor: pointer;
     border: solid orangered 2px ;
+}
+
+.activeDispValDiv {
+    position: relative;
+    left: 30px;
+    border: black solid 2px;
+    background-color: black;
+    color: white;
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
 }
 
 .dispValDiv {

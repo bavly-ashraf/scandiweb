@@ -28,9 +28,6 @@ export const NavLink = styled(Link)`
   text-transform: uppercase;
   padding: 0 1rem;
   cursor: pointer;
-  &.active {
-    color: #5ECE7B;
-  }
 `;
   
 export const Bars = styled(FaBars)`
