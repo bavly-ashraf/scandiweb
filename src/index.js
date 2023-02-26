@@ -30,7 +30,7 @@ root.render(
   <BrowserRouter>
     <App />
     </BrowserRouter>
-  </ApolloProvider>,
+  </ApolloProvider>
   </StrictMode>
 );
 

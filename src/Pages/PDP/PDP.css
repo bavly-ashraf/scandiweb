@@ -64,9 +64,9 @@ color: #1D1F22;
 /* COLOR: */
 
 
-position: absolute;
-left: 929px;
-top: 200px;
+position: relative;
+left: 892px;
+top: 160px;
 
 font-family: 'Roboto Condensed';
 font-style: normal;
@@ -81,13 +81,34 @@ color: #1D1F22;
     margin: 15px;
 }
 
+.colorDiv {
+    position: relative;
+    left: 20px;
+    display: inline-block;
+    border: #1D1F22 solid 2px;
+}
+
+.colorDiv:hover {
+    position: relative;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
+    border: solid orangered 2px ;
+}
+
 .dispValDiv {
+    position: relative;
+    left: 30px;
     border: black solid 2px;
     display: inline-block;
     padding: 2px;
     margin: 2px;
 }
 .dispValDiv:hover {
+    position: relative;
+    left: 30px;
     border: black solid 2px;
     background-color: black;
     color: white;
