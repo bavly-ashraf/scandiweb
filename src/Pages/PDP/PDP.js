@@ -7,8 +7,11 @@ import parse from 'html-react-parser';
 export default function PDP() {
   const location = useLocation();
 
+  //useState for bigImg
   const [imgSrc, setImgSrc] = useState(location.state.img);
-  console.log(location.state.id);
+
+  //useState for Cart
+  
 
     const GET_PRODUCT_Gallery = gql`
     query {
@@ -50,7 +53,6 @@ export default function PDP() {
     };
 
     function DisplayDetails() {
-      console.log(data.product.attributes.map((attr) => attr.name === "Color"? attr.items.map((item) => <div style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={attr.name}>{" "}</div>) : attr.items.map((item) => (<div key={item} className={'dispValDiv'}>{item.displayValue}</div>))));
       return data.product.attributes.map((attr) => (
         <>
         <div key={attr.id}>{attr.name}:</div>

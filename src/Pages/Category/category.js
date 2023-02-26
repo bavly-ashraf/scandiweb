@@ -73,7 +73,7 @@ if (error) return <p>Error : {error.message}</p>;
     <DisplayCategories />
     </NavMenu>
     <NavBtn>
-          <NavBtnLink to='/'>Logout</NavBtnLink>
+          <NavBtnLink to='/cart'>My Cart</NavBtnLink>
         </NavBtn>
       </Nav>
    <h1 className = "catHeader">{catName}</h1>
