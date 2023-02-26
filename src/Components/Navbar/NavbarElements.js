@@ -28,6 +28,10 @@ export const NavLink = styled(Link)`
   text-transform: uppercase;
   padding: 0 1rem;
   cursor: pointer;
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    opacity: 50%
+  }
 `;
   
 export const Bars = styled(FaBars)`
@@ -72,7 +76,7 @@ export const NavBtn = styled.nav`
   
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #808080;
+  background: #FFFFFF;
   padding: 10px 22px;
   color: #000000;
   outline: none;
@@ -84,7 +88,6 @@ export const NavBtnLink = styled(Link)`
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #000000;
+    opacity: 50%
   }
 `;

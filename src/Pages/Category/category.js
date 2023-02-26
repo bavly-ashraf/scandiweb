@@ -11,6 +11,9 @@ import {
   NavBtnLink,
 } from '../../Components/Navbar/NavbarElements';
 import { Link } from 'react-router-dom';
+import emptyCart from '../../Icons/Empty Cart.svg';
+import scandiwebLogo from '../../Icons/a-logo.svg';
+import currencySwitcherIcon from '../../Icons/Group 1.svg';
 
 const Category = ({navData}) => {
   //console.log(currentCat);
@@ -67,15 +70,21 @@ if (error) return <p>Error : {error.message}</p>;
 
   return (
   <>
-        <Nav>
-        <Bars />
+    <Nav>
+      <Bars />
         <NavMenu>
-    <DisplayCategories />
-    </NavMenu>
-    <NavBtn>
-          <NavBtnLink to='/cart'>My Cart</NavBtnLink>
-        </NavBtn>
-      </Nav>
+         <DisplayCategories />
+        </NavMenu>
+      <NavBtn>
+        <NavBtnLink to='/'><img src={scandiwebLogo} alt='Scandiweb Logo' /></NavBtnLink>
+      </NavBtn>
+      <NavBtn>
+        <NavBtnLink to='/currencySwitcher'><img src={currencySwitcherIcon} alt='Currency Switcher' /></NavBtnLink>
+      </NavBtn>
+      <NavBtn>
+        <NavBtnLink to='/cart'><img src={emptyCart} alt='Empty Cart' /></NavBtnLink>
+      </NavBtn>
+    </Nav>
    <h1 className = "catHeader">{catName}</h1>
    <DisplayProducts />
   </>
