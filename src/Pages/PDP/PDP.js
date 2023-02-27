@@ -57,10 +57,11 @@ export default function PDP() {
 
     function DisplayDetails() {
       console.log(...isActive);
+      console.log(isActive.includes(("Capacity 256GB")?.includes("Capacity")));
       return data.product.attributes.map((attr) => (
         <>
         <div key={attr.id}>{attr.name}:</div>
-         {attr.name === "Color"? attr.items.map((item) => (<div onClick={() => setColorIsActive(item.displayValue)} className={colorisActive === item.displayValue? 'activeColorDiv' : 'colorDiv'} style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div onClick={() => (isActive.includes(attr.name + ' ' + item.displayValue)? null : setIsActive([attr.name + ' ' + item.displayValue, ...isActive]))} key={item.id} className={isActive.includes(attr.name + ' ' + item.displayValue)? 'activeDispValDiv' : 'dispValDiv'}>{item.displayValue}</div>))}
+         {attr.name === "Color"? attr.items.map((item) => (<div onClick={() => setColorIsActive(item.displayValue)} className={colorisActive === item.displayValue? 'activeColorDiv' : 'colorDiv'} style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div onClick={() => (isActive.includes((attr.name + ' ' + item.displayValue).includes(attr.name))? null : setIsActive([attr.name + ' ' + item.displayValue, ...isActive]))} key={item.id} className={isActive.includes(attr.name + ' ' + item.displayValue)? 'activeDispValDiv' : 'dispValDiv'}>{item.displayValue}</div>))}
          </>
          ));
     };

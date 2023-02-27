@@ -1,35 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Container from '../../Components/Container/container';
 import './category.css';
-import {
-  Nav,
-  NavLink,
-  Bars,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-} from '../../Components/Navbar/NavbarElements';
 import { Link } from 'react-router-dom';
-import emptyCart from '../../Icons/Empty Cart.svg';
-import scandiwebLogo from '../../Icons/a-logo.svg';
-import currencySwitcherIcon from '../../Icons/Group 1.svg';
 
-const Category = ({navData}) => {
+const Category = ({catName}) => {
   //console.log(currentCat);
-  const [catName, setCatName] = useState("all");
 
-
-
-  function DisplayCategories() {
-    //console.log( data );
-    return  navData.map(({ name }) => (
-
-      <NavLink style={catName === name? {color: '#5ECE7B'}: null} key={name} onClick={(e) => setCatName(e.currentTarget.text)}>
-        {name}
-      </NavLink>
-    ));
-  };
 
   function DisplayProducts() {
   const GET_PRODUCTS_NAMES = gql`
@@ -70,21 +47,6 @@ if (error) return <p>Error : {error.message}</p>;
 
   return (
   <>
-    <Nav>
-      <Bars />
-        <NavMenu>
-         <DisplayCategories />
-        </NavMenu>
-      <NavBtn>
-        <NavBtnLink to='/'><img src={scandiwebLogo} alt='Scandiweb Logo' /></NavBtnLink>
-      </NavBtn>
-      <NavBtn>
-        <NavBtnLink to='/currencySwitcher'><img src={currencySwitcherIcon} alt='Currency Switcher' /></NavBtnLink>
-      </NavBtn>
-      <NavBtn>
-        <NavBtnLink to='/cart'><img src={emptyCart} alt='Empty Cart' /></NavBtnLink>
-      </NavBtn>
-    </Nav>
    <h1 className = "catHeader">{catName}</h1>
    <DisplayProducts />
   </>
