@@ -55,12 +55,23 @@ export default function PDP() {
       ));
     };
 
+  function DeletingArrItem(attrName, displayVal) {
+    if(isActive.map((arrItem) => (arrItem.includes(displayVal))).includes(true))
+    {
+      
+    }
+    else {
+const filteredArr = isActive.filter((filteredArrItem) => (!filteredArrItem.includes(attrName)));
+setIsActive(attrName+ ' ' +displayVal, ...filteredArr);
+console.log(attrName+ ' ' +displayVal, ...filteredArr);
+  }};
+
     function DisplayDetails() {
-      console.log(...isActive);
+      console.log(isActive);
       return data.product.attributes.map((attr) => (
         <>
         <div key={attr.id}>{attr.name}:</div>
-         {attr.name === "Color"? attr.items.map((item) => (<div onClick={() => setColorIsActive(item.displayValue)} className={colorisActive === item.displayValue? 'activeColorDiv' : 'colorDiv'} style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div onClick={() => (isActive.map((arrItem) => (arrItem.includes(attr.name))).includes(true)? null : setIsActive([attr.name + ' ' + item.displayValue, ...isActive]))} key={item.id} className={isActive.includes(attr.name + ' ' + item.displayValue)? 'activeDispValDiv' : 'dispValDiv'}>{item.displayValue}</div>))}
+         {attr.name === "Color"? attr.items.map((item) => (<div onClick={() => setColorIsActive(item.displayValue)} className={colorisActive === item.displayValue? 'activeColorDiv' : 'colorDiv'} style={{backgroundColor: item.value, width: "32px", height: "32px"}} key={item.id}>{" "}</div>)) : attr.items.map((item) => (<div onClick={() => (isActive.map((arrItem) => (arrItem.includes(attr.name))).includes(true)? DeletingArrItem(attr.name, item.displayValue) : setIsActive([attr.name + ' ' + item.displayValue, ...isActive]))} key={item.id} className={isActive.includes(attr.name + ' ' + item.displayValue)? 'activeDispValDiv' : 'dispValDiv'}>{item.displayValue}</div>))}
          </>
          ));
     };
