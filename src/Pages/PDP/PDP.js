@@ -56,18 +56,19 @@ export default function PDP() {
     };
 
   function DeletingArrItem(attrName, displayVal) {
-    if(isActive.map((arrItem) => (arrItem.includes(displayVal))).includes(true))
+    if(isActive.map((arrItem) => (arrItem.includes(displayVal) && arrItem.includes(attrName))).includes(true))
     {
-      
+      console.log(displayVal);
+      console.log('Something is wrong i think');
     }
     else {
 const filteredArr = isActive.filter((filteredArrItem) => (!filteredArrItem.includes(attrName)));
-setIsActive(attrName+ ' ' +displayVal, ...filteredArr);
-console.log(attrName+ ' ' +displayVal, ...filteredArr);
+setIsActive([attrName+ ' ' +displayVal, ...filteredArr]);
+console.log('filtered arr' + [attrName+ ' ' +displayVal, ...filteredArr]);
   }};
 
     function DisplayDetails() {
-      console.log(isActive);
+      console.log('original arr' + isActive);
       return data.product.attributes.map((attr) => (
         <>
         <div key={attr.id}>{attr.name}:</div>
