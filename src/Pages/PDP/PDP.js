@@ -17,6 +17,7 @@ export default function PDP() {
   //LocalStorage for Cart
   const addCart = () => {
   localStorage.setItem('cartItemArr', JSON.stringify([colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount]));
+  console.log(JSON.parse(localStorage.getItem('cartItemArr')));
   };
 
     const GET_PRODUCT_Gallery = gql`
