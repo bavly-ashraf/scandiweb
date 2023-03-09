@@ -13,8 +13,11 @@ export default function PDP() {
   //useState for Selection of Attributes
   const [colorisActive, setColorIsActive] = useState(null);
   const [isActive, setIsActive] = useState([]);
-  //useState for Cart
-  
+
+  //LocalStorage for Cart
+  const addCart = () => {
+  localStorage.setItem('cartItemArr', JSON.stringify([colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount]));
+  };
 
     const GET_PRODUCT_Gallery = gql`
     query {
@@ -96,7 +99,7 @@ console.log('filtered arr' + [attrName+ ' ' +displayVal, ...filteredArr]);
   </div>
   <h2 className='priceHeader'>Price:</h2>
   <h1 className='mainPriceHeader'>{data.product.prices[0].currency.symbol}{data.product.prices[0].amount}</h1>
-  <button className='addBtn'>ADD TO CART</button>
+  <button className='addBtn' onClick={addCart}>ADD TO CART</button>
   <div className='prodDiscrip'>
   <DisplayDescription />
   </div>

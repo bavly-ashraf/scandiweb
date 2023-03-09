@@ -1,15 +1,16 @@
 import React from "react";
 import './cartItem.css';
 
-const CartItem = () => {
-
+const CartItem = ({itemArr}) => {
+console.log(itemArr);
 return(
 <>
 <div className="gridContainer">
  <div className="prodInfo">
-  <h1>Product Name</h1>
-  <h2>Product Price</h2>
-  <p>Attributes</p>
+  <h1>{itemArr[3]}</h1>
+  <h2>{itemArr[4]}</h2>
+  {itemArr[0] === null? null : <><p>Color </p><div style={{backgroundColor: itemArr[0], width: "32px", height: "32px"}}></div></>}
+  {itemArr[1].map((item) => (<p>{item}</p>))}
  </div>
 
  <div className="counterContainer">
@@ -18,7 +19,7 @@ return(
     <button className="btn">-</button>
  </div>
  <div className="imgContainer">
-    <img src="https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/6304a2578abd315b18c8f6e9_twitter-logo.png" alt="Google Logo" width={'200px'} />
+    <img src={itemArr[2]} alt={itemArr[3]} width={'200px'} />
  </div>
 </div>
 </>
