@@ -1,0 +1,28 @@
+.gridContainer {
+    display: grid;
+}
+
+.prodInfo {
+    grid-column: 1 / 5;
+}
+
+.counterContainer {
+    grid-column: 24 / 26;
+}
+
+.btn {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    border: 1px solid #1D1F22;
+    background-color: white;
+}
+
+.btn:hover {
+    color: white;
+    background-color: black;
+}
+
+.imgContainer {
+    grid-column: 26 / 29;
+}
