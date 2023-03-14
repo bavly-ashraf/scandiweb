@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import parse from 'html-react-parser';
 
 export default function PDP() {
+  //localStorage.clear('cartItemArr');
   const location = useLocation();
 
   //useState for bigImg
@@ -15,9 +16,15 @@ export default function PDP() {
   const [isActive, setIsActive] = useState([]);
 
   //LocalStorage for Cart
+  const cartItem = localStorage.getItem('cartItemArr');
+  const cartItemArr = cartItem ? JSON.parse(cartItem) : []
+
   const addCart = () => {
-  localStorage.setItem('cartItemArr', JSON.stringify([colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount]));
+  const cartItemArrQ = [colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount];
+  cartItemArr.push(cartItemArrQ);
+  localStorage.setItem('cartItemArr', JSON.stringify(cartItemArr));
   console.log(JSON.parse(localStorage.getItem('cartItemArr')));
+  //localStorage.setItem('cartItemArr', JSON.stringify([colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount]));
   };
 
     const GET_PRODUCT_Gallery = gql`

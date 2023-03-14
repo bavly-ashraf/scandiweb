@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import './cartItem.css';
 
 const CartItem = ({itemArr}) => {
-console.log(itemArr);
+   const [itemCounter, setItemCounter] = useState(1);
+//console.log(itemArr);
 return(
 <>
 <div className="gridContainer">
@@ -14,9 +15,9 @@ return(
  </div>
 
  <div className="counterContainer">
-    <button className="btn">+</button>
-    <p>Counter</p>
-    <button className="btn">-</button>
+    <button className="btn" onClick={() => setItemCounter(itemCounter + 1)}>+</button>
+    <p style={{position: 'relative', left: '15px', fontSize: '18px' , fontWeight: 'bold'}}>{itemCounter}</p>
+    <button className="btn" onClick={() => setItemCounter(itemCounter - 1)}>-</button>
  </div>
  <div className="imgContainer">
     <img src={itemArr[2]} alt={itemArr[3]} width={'200px'} />
