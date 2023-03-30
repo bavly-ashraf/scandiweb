@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { /*useEffect,*/ useState } from 'react';
 import "./PDP.css";
 import { useQuery, gql } from '@apollo/client';
 import { useLocation } from 'react-router-dom';
@@ -18,6 +18,12 @@ export default function PDP() {
   //LocalStorage for Cart
   const cartItem = localStorage.getItem('cartItemArr');
   const cartItemArr = cartItem ? JSON.parse(cartItem) : []
+
+  //useEffect for cart counter
+  // const [itemCount, setItemCount] = useState();
+  // useEffect(() => {
+  //   cartItem? setItemCount(JSON.parse(cartItem).length) : console.log('none') ;
+  // },[cartItem]);
 
   const addCart = () => {
   const cartItemArrQ = [colorisActive, isActive, location.state.img, location.state.prod, data.product.prices[0].currency.symbol + data.product.prices[0].amount];
@@ -97,6 +103,10 @@ console.log('filtered arr' + [attrName+ ' ' +displayVal, ...filteredArr]);
 
   return (
   <div className='mainDiv'>
+  {/* <svg style={{position: 'absolute' , top: '-117px' , left: '1294px', width: '166px', height:'156px'}}>
+    <circle cx={6} cy={150} r={6} style={{fill: 'black'}}></circle>
+  </svg>
+  <p style={{position: 'absolute' , top: '19px' , left: '1298px', color: 'white' , fontSize: '8px'}}>{itemCount}</p> */}
   <div className='smallImgs'>
   <DisplayProductGallery />
   </div>
